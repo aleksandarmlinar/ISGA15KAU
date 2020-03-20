@@ -14,15 +14,40 @@
 
     <div class="container-fluid">
 
-      <p class="h4">Lösningen skapad av [här listar ni gruppnummer och namn på gruppmedlemmarna].</p>
+      <p class="h4">Lösningen  upp till 70% skapad av Aleksandar Mlinar.</p>
       <div class="table-responsive">
 
         <script type="text/javascript">
 
           "use strict";
+					
+				
+				
+					var arr = [];
+					var i;	
+					
+					for(i=0; i < 101; i++){
+						arr[i] = Math.floor(Math.random() * 1000) + 1;
+					}
+					
+					arr.sort(function(a, b) {
+					return a-b;
+					});
 
-          //Här skriver ni er lösning!
-
+					document.write('<table class="table table-bordered table-responsive text-center">');
+					document.write('<tr>');
+					for(i = 1; i < arr.length; i++){
+						document.write('<td>' + arr[i] + '</td>');
+							if(i%10 === 0)
+							document.write('</tr>' + '<tr>')
+					}
+					
+					document.write('</tr>' + '</table>');
+					
+					
+					
+					
+	
         </script>
 
       </div>
