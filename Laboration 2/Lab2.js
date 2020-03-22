@@ -4,7 +4,7 @@
 
 function setFocusOnForm(){
 	console.log("setFocusOnForm()");
-  document.getElementById('cbofabrikat').focus();
+  document.querySelector("#cbofabrikat").focus();
 }
 
 function validateForm(){
@@ -13,4 +13,5 @@ function validateForm(){
 }
 function resetForm(){
 	console.log("resetForm()");
+  setFocusOnForm();
 }
