@@ -6,13 +6,13 @@
 			http://getbootstrap.com/
 			https://www.w3schools.com/bootstrap/
 		-->
-		<title>Laboration 2 - JavaScript för webbutveckling (ISGB15) 5hp</title>
+		<title>JavaScript för webbutveckling (ISGB15) 5hp</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 
-	<body>
+	<body onload = "setFocusOnForm();">
 
 		<div class="jumbotron text-center">
 		  <h1>Laboration 2</h1>
@@ -22,7 +22,7 @@
 
 			<div id="errorMsg"></div>
 
-			<form action="Lab2.html" method="post" id="theForm" onsubmit="return validateForm();">
+			<form action="Lab2.html" method="post" id="theForm" onsubmit="return validateForm();" onreset="resetForm():">
 
 				<div class="form-group">
 				 	<label class="control-label" for="cbofabrikat">Välj fabrikat</label>
