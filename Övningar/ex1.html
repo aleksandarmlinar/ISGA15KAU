@@ -1,0 +1,58 @@
+<!doctype html>
+<html  lang="sv">
+
+	<head>
+        <title>
+			JavaScript för webbutveckling ISGB15
+        </title>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+
+		<div class="jumbotron text-center">
+			<h1>JavaScript för webbutveckling F5</h1>
+		</div>
+
+		<div class="container-fluid">
+
+			<div id="errormsg"></div>
+
+			<form action="dummy.html" method="post" id="theForm">
+				<div>
+					<label for="selFabrikat" class="control-label">Välj fabrikat:</label>
+
+					<select title="Fabrikat" id="selFabrikat" class="form-control">
+						<option value="saknas" selected="selected">Välj fabrikat</option>
+						<option value="Volvo">Volvo</option>
+						<option value="Saab">Saab</option>
+						<option value="Audi">Audi</option>
+						<option value="Fiat">Fiat</option>
+						<option value="Skoda">Skoda</option>
+					</select>
+
+				</div>
+				<div>
+
+					<label for="cboKommentar" class="control-label">Övriga kommentarer:</label>
+					<input type="checkbox" id="cboKommentar" class="form-control" onclick="showCheckBoxInfo(this);"/>
+
+				</div>
+				<div>
+
+					<input type="button" value="Select test" class="btn btn-info" onclick="showSelectInfo(this.form);"/>
+					<input type="button" value="Options test" class="btn btn-info" onclick="showOptionsInfo(this.form);"/>
+					<input type="reset" value="Rensa" class="btn btn-info" />
+
+				</div>
+			</form>
+
+		</div>
+
+	   <script src="ex1.js"></script>
+    </body>
+
+</html>
