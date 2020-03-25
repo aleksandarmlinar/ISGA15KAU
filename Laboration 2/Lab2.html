@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 	<head>
@@ -12,7 +13,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 
-	<body onload = "setFocusOnForm();">
+	<body>
 
 		<div class="jumbotron text-center">
 		  <h1>Laboration 2</h1>
@@ -20,9 +21,9 @@
 
 		<div class="container-fluid">
 
-			<div id="errorMsg" class ="alert alert-danger"></div>
+			<div id="errorMsg" class="alert alert-danger"></div>
 
-			<form action="Lab2.html" method="post" id="theForm" onsubmit="return validateForm();" onreset="resetForm();">
+			<form action="Lab2.html" method="post" id="theForm" onsubmit="return validateForm();">
 
 				<div class="form-group">
 				 	<label class="control-label" for="cbofabrikat">Välj fabrikat</label>
@@ -54,7 +55,7 @@
 
 				<div class="form-group">
 					<label class="control-label" for="txtkommentar">Fritextfällt för övriga kommentarer (min 5 tecken)</label>
-					<textarea rows="10" cols="30" title="Fritextfällt för övriga kommentarer" id="txtkommentar" placeholder="Övriga kommentarer" class="form-control" oninput = "countNrOfChars(this);"></textarea>
+					<textarea rows="10" cols="30" title="Fritextfällt för övriga kommentarer" id="txtkommentar" placeholder="Övriga kommentarer" class="form-control"></textarea>
 				</div>
 
 				<input type="submit" value="Skicka" class="btn btn-info" />
