@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<title>Objektorientering i JavaScript</title>
+		<meta charset="utf-8" /> 
+	</head>
+
+	<body>
+
+		<script>
+			
+			"use strict";
+			
+			//----- Car -----
+			function Car( regnr, fabrikat ) {
+			
+				//Attribut
+				this.regnr = regnr;
+				this.fabrikat = fabrikat;
+				
+				//Metoder
+				this.setRegnr = function( newRegnr ) { 
+											this.regnr = newRegnr
+										};
+										
+				this.getRegnr = function() { 
+											return this.regnr; 
+										};
+										
+				this.setFabrikat = function( newFabrikat ) { 
+											this.fabrikat = newFabrikat 
+										};
+										
+				this.getFabrikat = function() { 
+											return this.fabrikat; 
+										};
+				 
+			}
+			//----- Car -----
+			
+			//----- CarOwner -----
+			function CarOwner( firstName, familyName ) {
+			
+				//Attribut
+				this.firstName = firstName;
+				this.familyName = familyName;
+				this.cars = [];
+				this.index = 0;
+			
+				//Metoder
+				this.getFirstName = function() { 
+										return this.firstName; 
+									};
+									
+				this.getFamilyName = function() { 
+										return this.familyName; 
+									};
+									
+				this.addCar = function( oCar ) { 
+										this.cars[this.index] = oCar; 
+										this.index++;
+									};
+
+				this.getCarOwnerData = function() { 
+										var theCarOwnerData = this.firstName + " " + this.familyName + "<br />";
+										for(var counter = 0; counter < this.index; counter++) {
+											theCarOwnerData += this.cars[counter].getRegnr() + "<br />";
+											theCarOwnerData += this.cars[counter].getFabrikat() + "<br />";
+										}
+										return theCarOwnerData;
+									};
+			}
+			//----- CarOwner -----
+			
+			
+			//----- Main -----
+			
+			//----- Main -----
+			
+		</script>
+
+
+	</body>
+
+
+</html>

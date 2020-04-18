@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sv">
+	<head>
+        <meta charset="utf-8" /> 
+        <title>
+			JavaScript för webbutveckling ISGB15		
+        </title>	
+	</head>
+	<body>
+        <p data-id="1">1</p>
+		<p data-id="2">2</p>
+		<p data-id="3">3</p>
+		<p data-id="4">4</p>
+		<p>Ett</p>
+		<p>Två</p>
+		
+		<div><p>Test</p></div>
+
+		<script>
+		
+			"use strict";
+			//Funktion utan inkommande värden och returvärde
+			function searchDOM() {
+
+				/*
+					let, var, const
+					window, console, Date
+					if, for
+					getElementsByTagName(), getElementsByClassName(), getElementsByName(), getElementById()
+					querySelector(), querySelectorAll()
+					hasAttribute(), setAttribute(), getAttribute()
+					textContent, innerHTML, outerHTML
+				*/
+				
+				console.log("Första p-elementet: ", document.querySelector( "p" ));
+
+				let bodyRefOne = document.getElementsByTagName( "body" );
+				console.log("getElementsByTagName('body')", bodyRefOne );
+				console.log("bodyRefOne", bodyRefOne[0] );
+				console.log("bodyRefOne", bodyRefOne.item(0) );
+				
+				let bodyRefTwo = document.querySelector( "body" );
+				console.log("querySelector('body')", bodyRefTwo );
+				
+				let pRefsOne = document.getElementsByTagName( "p" );
+				let nbrOfPsOne = pRefsOne.length;
+				
+				console.log("getElementsByTagName('p')", pRefsOne, nbrOfPsOne );
+				for( let counter = 0; counter < nbrOfPsOne; counter++ ) {
+					let currentP = pRefsOne.item( counter );
+					console.log( currentP );
+				
+					if( currentP.hasAttribute( "data-id" ) ) {
+						let newDate = new Date();
+						currentP.textContent = "Klockan är: " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds() + ":" + newDate.getMilliseconds();
+					}
+				}
+				
+				let pRefsTwo = document.querySelectorAll( "p[data-id]" );
+				let nbrOfPsTwo = pRefsTwo.length;
+				
+				console.log("querySelectorAll:", pRefsTwo, nbrOfPsTwo );
+				
+				for( let counter = 0; counter < nbrOfPsTwo; counter++ ) {
+					console.log( pRefsTwo[counter] );
+					console.log( pRefsTwo.item( counter ) );
+				}
+			
+			}
+			
+			searchDOM();
+			
+		</script>
+		
+    </body>
+</html>

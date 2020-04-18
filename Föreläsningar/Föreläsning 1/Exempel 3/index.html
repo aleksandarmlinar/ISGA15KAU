@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>Kodexempel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      'use strict';
+
+      var antal = 0;
+      var raknare = 0;
+      var slumptal = 0;
+
+      antal = window.prompt('Ange ett tal!', '100');
+
+      antal = window.parseInt(antal);
+
+      if (window.isNaN(antal)) {
+        window.alert('Ange ett tal!');
+      }
+      else {
+        for (raknare = 0; raknare < antal; raknare++) {
+
+          slumptal = Math.random();
+          slumptal = slumptal * 10;
+          slumptal = slumptal + 1;
+          slumptal = Math.floor(slumptal);
+
+          document.write('Slumptal: ' + slumptal + '<br>');
+        }
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+Övning kopierad ifrån: https://www.teaching-materials.org/jsweb/exercises/events
+-->
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title></title>
+ </head>
+ <body>
+
+ <h1>Mad Libs</h1>
+
+ <ul>
+  <li>Substantiv: <input type="text" id="noun">
+  <li>Adjektiv: <input type="text" id="adjective">
+  <li>Någons namn: <input type="text" id="person">
+ </ul>
+
+ <button id="lib-button">Lib it!</button>
+
+ <div id="story"></div>
+
+<script type ="text/javascript">
+
+  'use strict';
+
+  window.addEventListener("load", function(){
+
+    document.querySelector('#lib-button').addEventListener('click', createStory);
+
+  });
+
+  function createStory(oEvent){
+      let subst = document.querySelector("#noun");
+      let adj = document.querySelector("#adjectiv");
+      let person = document.querySelector("#person");
+      let story = person.value + " tycker om " + adj.value + " " + subst.value;
+      document.querySelector("#story")text.content = story;
+  }
+
+</script>
+ </body>
+</html>

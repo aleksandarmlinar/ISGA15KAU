@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <title>Kodexempel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      "use strict";
+
+      // Sortering av vektor med strängar
+      var counties = [
+        'Stockholms län',
+        'Västra Götalands län',
+        'Skåne län',
+        'Östergötlands län',
+        'Uppsala län',
+        'Jönköpings län',
+        'Hallands län',
+        'Örebro län',
+        'Södermanlands län',
+        'Dalarnas län',
+        'Gävleborgs län',
+        'Värmlands län',
+        'Västmanlands län',
+        'Västerbottens län',
+        'Norrbottens län',
+        'Västernorrlands län',
+        'Kalmar län',
+        'Kronobergs län',
+        'Blekinge län',
+        'Jämtlands län',
+        'Gotlands län',
+      ];
+
+      // Använd `sort`-metoden för att sortera en vektor. Detta ändrar på originalvektorn.
+      counties.sort();
+
+      // Sedan skriver vi ut de sorterade strängarna i en punktlista
+      document.write('<ul>');
+      for (var i = 0; i < counties.length; i++) {
+        document.write('<li>' + counties[i] + '</li>');
+      }
+      document.write('</ul>');
+
+      // Sortering av vektor med tal
+      var numbers = [11,2,1,10,5];
+
+      // Eftersom `sort` konverterar till strängar så blir det fel när vi sorterar tal ("10" kommer före "2" på samma sätt som "a" kommer före "b" i ASCII-tabellen)
+      // Därför måste vi ange en egen jämförelsefunktion som vi skickar in som argument till `sort`. Denna kan vi skapa på plats som en anonym funktion, om vi inte vill återanvända den.
+      numbers.sort(function(a, b) {
+        // Funktionen används av sorteringsalgoritmen för att jämföra två element `a` och `b`. Vi ska returnera ett negativt tal om `a` ska placeras före `b` och ett positivt tal om `a` ska placeras efter `b`. Att returnera `0` betyder att ordningen inte spelar någon roll. Denna spec är som skräddarsydd för att sortera tal eftersom allt vi behöver göra är följande:
+        return a - b;
+      });
+
+      document.write('<ul>');
+      for (var i = 0; i < numbers.length; i++) {
+        document.write('<li>' + numbers[i] + '</li>');
+      }
+      document.write('</ul>');
+
+    </script>
+  </body>
+</html>

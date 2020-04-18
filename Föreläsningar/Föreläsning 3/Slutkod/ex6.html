@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="sv">
+	<head>
+        <meta charset="utf-8" /> 
+        <title>
+			JavaScript för webbutveckling ISGB15		
+        </title>	
+	</head>
+	<body onload="setFocus();">
+        <div>
+            <p id="errorMsg" style="color: red;"></p>
+        </div>
+		
+		<form action="ex6.html" method="post" onsubmit="return validateForm(this);" onreset="resetFormPage();">
+		
+			<input type="text" title="namn" name="Name" oninput="checkTextField(this);" />
+			<br />	
+			<input type="text" title="efternamn" name="Familyname" oninput="checkTextField(this);" />
+			<br />	
+			<input type="submit" value="Visa" />
+			<input type="reset" value="Rensa" />
+			
+		</form>
+		
+		<script src="ex6.js"></script>
+		
+    </body>
+</html>

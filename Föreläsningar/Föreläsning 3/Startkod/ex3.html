@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<title>Objektorientering i JavaScript</title>
+		<meta charset="utf-8" /> 
+	</head>
+
+	<body>
+
+		<script>
+			
+			"use strict";
+			
+            let oneCar = {
+
+                regnr : "ABC123",
+				fabrikat : "Volvo",
+				
+				setRegnr :  function( newRegnr ) { 
+							    this.regnr = newRegnr
+							},
+										
+				getRegnr :  function() { 
+								return this.regnr; 
+							},
+										
+				setFabrikat :   function( newFabrikat ) { 
+									this.fabrikat = newFabrikat 
+								},
+										
+				getFabrikat :   function() { 
+									return this.fabrikat; 
+								}
+            };
+
+		</script>
+	</body>
+</html>

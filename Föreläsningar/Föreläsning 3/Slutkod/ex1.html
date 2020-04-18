@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="sv">
+	<head>
+        <meta charset="utf-8" /> 
+        <title>
+			JavaScript för webbutveckling ISGB15		
+        </title>	
+	</head>
+	<body>
+		<div>
+            <p>Test</p>
+        </div>
+
+		<script>
+		
+			"use strict";
+			
+			//Funktion med inkommande värden (byVal) och returvärde
+			function courseInfo1( code, name ) {
+
+				let returnValue = "Retur från courseInfo1(): " + code + " " + name;
+				
+				console.log("I coursInfo1() innan tilldelning:", code, name );
+				code = "ISGB11";
+				name = "Systemimplementeringsteknik";
+				console.log("I coursInfo1() efter tilldelning:", code, name );
+
+				return returnValue;
+
+			}
+			
+			//Funktion med inkommande värde=objekt (byRef) och returvärde
+			function courseInfo2( oCourseData ) {
+
+				let returnValue = "Retur från courseInfo2() " + oCourseData.courseCode + " " + oCourseData.courseName;
+				
+				console.log("I courseInfo2() innan tilldelning:", oCourseData.courseCode, oCourseData.courseName );
+				oCourseData.courseCode = "ISGB11";
+				oCourseData.courseName = "Systemimplementeringsteknik";
+				console.log("I courseInfo2() efter tilldelning:", oCourseData.courseCode, oCourseData.courseName );
+
+				return returnValue;
+
+			}
+
+            //Funktion med inkommande värde=objekt=element (byRef)
+            function elementContent( oElement ) {
+
+                console.log("outerHTML", oElement.outerHTML);
+			    console.log("innerHTML:", oElement.innerHTML);
+			    console.log("textContent:", oElement.textContent);
+
+                oElement.textContent = "Ny text...";
+
+            }
+			//Huvudprogrammet
+			let courseCode = "ISGB15";
+			let courseName = "JavaScript för webbutveckling";
+
+			//console.log("Innan courseInfo1():", courseCode, courseName);
+			//console.log( courseInfo1(courseCode, courseName) );
+			//console.log("Efter courseInfo1():", courseCode, courseName);
+
+			let courseData = {
+				
+				courseCode : "ISGB15",
+				courseName : "JavaScript för webbutveckling"
+
+			};
+
+			//console.log("Innan courseInfo2():", courseData.courseCode, courseData.courseName);
+			//console.log( courseInfo2(courseData));
+			//console.log("Efter courseInfo2():", courseData.courseCode, courseData.courseName);
+
+			elementContent( document.querySelector("div"));			
+
+		</script>
+		
+    </body>
+</html>
