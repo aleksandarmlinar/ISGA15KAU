@@ -9,7 +9,7 @@ function validateForm(formRef) {
     console.log("validateForm()");
 
     try {
-       
+
         let name = formRef.querySelector("[name=Name]").value;
         let familyName = formRef.querySelector("[name=Familyname]").value;
 
@@ -23,7 +23,7 @@ function validateForm(formRef) {
             throw new Error("Ange efternamn!");
         }
 
-        return true;
+        return false;
 
     } catch(oError) {
         document.querySelector("#errorMsg").textContent = oError.message;
@@ -40,5 +40,5 @@ function resetFormPage() {
 
 function checkTextField(inputRef) {
     console.log("checkTextField()");
-    console.log( inputRef.value );
+    console.log(inputRef.value);
 }

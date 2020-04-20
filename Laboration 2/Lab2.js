@@ -1,49 +1,68 @@
-//Lab2.js
 'use strict';
+
+	//reset
+  function resetForm(){
+  //console.log("resetForm()");
+  document.querySelector("#errorMsg").textContent = "";
+  document.querySelector("#cbofabrikat").focus();
+  document.querySelector("#errorMsg").removeAttribute("class");
+  }
+
 //validera
-
-function showOptionsInfo(){
-//console.log("showOptionsInfo()");
- let optionsRef = document.querySelectorAll("select option");
-	if(optionsRef.item(0).value === "saknas"){
-		document.querySelector("#errorMsg").textContent = "Välj en bil!";
-		}
-}
-
-function validateForm(formRef){ 
-	showOptionsInfo();
+function validateForm(){
+  document.querySelector("#errorMsg").setAttribute("class", "alert alert-danger");
 	console.log("validateForm()");
 		try{
-      let textRefs = document.querySelectorAll("input[type = text], textarea");
-      let currentTextRef = null;
-          for (var i = 0; i < textRefs.length; i++) {
-          currentTextRef = textRefs.item(i);//kan använda som vektor också (textrefs[i])
-          console.log(currentTextRef.getAttribute("id"));
-            if(currentTextRef.value.length === 0){
-              //throw new Error("Någon textruta saknar värde!");
-              throw {"object": currentTextRef};
-            }
+        // Kolla alla input
+        let textRefs = document.querySelectorAll("input[type = text]");
+        let selectRefs = document.querySelector("select");
+        let textAreaRef = document.querySelector("textarea");
+        let chkBoxRef = document.querySelector("input[type = checkbox]");
+        let currentRef = null;
 
-        }
+            //kontrollera alla select fält
+            if(selectRefs.value === "saknas"){
+              selectRefs.focus();
+              //console.log(selectRefs.value);
+              //throw {"object": selectRefs};
+               throw new Error("Du måste välja en annan rad i 'Välj fabrikat' listan!");
+            };
+
+
+            //Kontrollera input
+           for (var i = 0; i < textRefs.length; i++) {
+                currentRef = textRefs.item(i);
+              if(textRefs.item(0).value === ""){
+                  textRefs.item(0).focus();
+                  throw new Error("Ange modell!");
+              };
+
+              if(textRefs.item(1).value === ""){
+                textRefs.item(1).focus();
+                throw new Error("Ange mätarställning!");
+              };
+            };
+
+            if(currentRef.getAttribute("id") === "txtmatarstallning"){
+               if(isNaN(currentRef.value)){
+               throw new Error("Du måste ange värdet i siffror.");
+               };
+            };
+
+            //kontrollera textfältet
+            if(chkBoxRef.checked === true){
+                if(textAreaRef.value.length < 5){
+                  throw new Error("Du måste skriva minst 5 tecken under 'Övriga kommentarer'.");
+                };
+            };
+
+
+
 			return true;
 		} catch(oError){
 
-        document.querySelector("#errorMsg").textContent = "Ange " + oError.object.getAttribute("title") + "!";
-				oError.object.focus();
-				console.log(oError);
-        return false;
+          document.querySelector("#errorMsg").innerHTML = oError.message;
 
-
+      return false;
     }
-	return false;
 }
-
-	//reset
-function resetForm(){
-//console.log("resetForm()");
-document.querySelector("#errorMsg").textContent = "";
-}
-
-window.addEventListener("load", function(){
-
-});
