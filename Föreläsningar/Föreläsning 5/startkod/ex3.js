@@ -1,21 +1,57 @@
 "use strict";
+// sätt nummer ett
+/*window.onload = function(){
 
-function demoOnMouseOver(textRef) {
-	textRef.setAttribute("style", "background-color: pink");
-}
+	//console.log("dom");
 
-function demoOnMouseOut(textRef) {
-	textRef.setAttribute("style", "background-color: white");
-}
+	let txtRef = document.querySelector("#txtDemo");
 
-function demoOnKeyPress(textRef) {
-	console.log("onkeypress");
-}
+	txtRef.onmouseover = function(){
+	this.setAttribute("style", "background-color: pink");
+	}
 
-function demoOnKeyDown(textRef) {
-	console.log("onkeydown");
-}
+	txtRef.onmouseout = function(){
+			this.setAttribute("style", "background-color: white");
+	}
 
-function demoOnKeyUp(textRef) {
-	console.log("onkeyup");
 }
+*/
+
+
+	function demoOnMouseOver(textRef) {
+		textRef.setAttribute("style", "background-color: pink");
+	}
+
+	function demoOnMouseOut(textRef) {
+		textRef.setAttribute("style", "background-color: white");
+	}
+
+	function demoOnKeyPress() {
+		console.log("onkeypress");
+	}
+
+	function demoOnKeyDown() {
+		console.log("onkeydown");
+	}
+
+	function demoOnKeyUp() {
+		console.log("onkeyup");
+	}
+
+
+	window.addEventListener("load", function(){
+
+		let txtRef = document.querySelector("#txtDemo");
+		
+		txtRef.addEventListener("keydown", demoOnKeyDown);
+
+		txtRef.addEventListener("mouseover", function(){
+				demoOnMouseOver(this);
+		});
+
+		txtRef.addEventListener("mouseout", function(){
+				demoOnMouseOut(this);
+		});
+
+
+	});
