@@ -2,7 +2,6 @@
 
 function setFocusOnForm() {
     console.log("setFocusOnForm()");
-
     document.querySelector("#txtNamn").focus();
 
 }

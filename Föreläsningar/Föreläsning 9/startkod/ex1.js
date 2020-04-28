@@ -15,88 +15,68 @@
 */
 "use strict";
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function(){
 
-	let tableRef= document.querySelector("table");
+
+	let tableRef = document.querySelector("table");
 	tableRef.remove();
 	createColumn(tableRef);
-	document.querySelector("div[class = table-responsive]").appendChild(tableRef);
+	document.querySelector("div[class=table-responsive]").appendChild(tableRef);
 
-	tableRef.addEventListener("mouseover", viewValueInSpan);
-	tableRef.addEventListener("mouseout", function(){
-		document.querySelector("span").firstChild.nodeValue = "";
-	});
-});
 
-function createColumn(tableNodeRef) {
 
-	let rowSum = 0;
-	let trRef = null;
-	let tdRef = null;
-	let tdTextRef = null;
-	let i = 0;
 
-	let trRefs = tableNodeRef.querySelectorAll("tr");
-	for(i = 0; i<trRefs.length; i++){
-		trRef = trRefs.item(i);
-		rowSum = sumRow(trRef);
+	function createColumn(tableNodeRef){
 
-		tdRef = document.createElement("td");
-		tdTextRef = document.createTextNode(rowSum);
-		tdRef.appendChild(tdTextRef);
-		trRef.appendChild(tdRef);
+		let rowSum = 0;
+		let tRef = null;
+		let tdRef = null;
+		let tdTextRef = null;
+		let i = 0;
+		let tRefs = tableNodeRef.querySelectorAll("tr");
 
-		tdRef.style.fontWeight = "bold";
-		tdRef.style.backgroundColor = "lightblue";
+		for(i = 0; i < tRefs.length; i++){
+			tRef = tRefs.item(i);
+			rowSum = sumRow(tRef);
+
+
+			tdRef = document.createElement("td");
+			tdTextRef = document.createTextNode(rowSum);
+			tdRef.appendChild(tdTextRef);
+			tRef.appendChild(tdRef);
+			tdRef.style.fontWeight = "bold";
+			tdRef.style.backgroundColor = "lightblue";
+		}
+
 	}
 
 
-}
-
-function sumRow(trNodeRef) {
+	function sumRow(trNodeRef){
 
 		let rowSum = 0;
 		let firstChildValue = 0;
 		let tdRef = null;
 		let tdRefs = trNodeRef.querySelectorAll("td");
 
-
-		for(let i=0; i < tdRefs.length; i++){
-				tdRef = tdRefs.item(i);
-					if(tdRef.firstChild === null ||
-						tdRef.firstChild.nodeValue.trim() === "" ||
-						isNaN(tdRef.firstChild.nodeValue) ){
-							tdRef.style.backgroundColor = "red";
-					} else {
-						firstChildValue = parseInt(tdRef.firstChild.nodeValue);
-					}
+		for(let i = 0; i < tdRefs.length; i++){
+			tdRef = tdRefs.item(i);
+				if(tdRef.firstChild === null ||
+					tdRef.firstChild.nodeValue.trim() === "" ||
+					isNaN(tdRef.firstChild.nodeValue ) ){
+						tdRef.style.backgroundColor = "red";
+						firstChildValue = 0;
+				} else {
+					firstChildValue = parseInt(tdRef.firstChild.nodeValue);
+				}
 
 				rowSum += firstChildValue;
-
 		}
 
 		return rowSum;
-}
-
-function viewValueInSpan(oEvent) {
-
-	let spanRef = document.querySelector("span");
-	let currentValue = 0;
-	if(oEvent.target.nodeName === "TD"){
-		if(oEvent.target.firstChild === null ||	oEvent.target.firstChild.nodeValue.trim() === ""){
-				currentValue = "saknas";
-		} else {
-			currentValue = oEvent.target.firstChild.nodeValue;
-		}
 	}
 
-	if(spanRef.firstChild === null){
-			spanRef.appendChild(document.createTextNode(currentValue) );
-	} else {
-		spanRef.firstChild.nodeValue = currentValue;
+	function viewValueInSpan(oEvent){
 
 	}
 
-
-
-}
+});
